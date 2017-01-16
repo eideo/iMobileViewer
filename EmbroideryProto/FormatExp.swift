@@ -1,7 +1,7 @@
 import UIKit
 
 class FormatExp {
-    class func Read(file : FileHandle) -> EmbPattern {
+    class func read(file : FileHandle) -> EmbPattern {
         let pattern = EmbPattern()
         file.seekToEndOfFile()
         let fileLength = file.offsetInFile

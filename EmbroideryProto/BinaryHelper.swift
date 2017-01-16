@@ -1,7 +1,7 @@
 import UIKit
 
 class BinaryHelper {
-    class func load(url: URL, to localUrl: URL, completion: @escaping () -> ()) {
+    class func load(url: URL, to localUrl: URL, completion: @escaping (_ filename: String) -> ()) {
         let filemgr = FileManager.default
         do {
             try filemgr.removeItem(at: localUrl)
@@ -21,7 +21,7 @@ class BinaryHelper {
                 
                 do {
                     try FileManager.default.copyItem(at: tempLocalUrl, to: localUrl)
-                    completion()
+                    completion((response?.suggestedFilename)!)
                 } catch (let writeError) {
                     print("error writing file \(localUrl) : \(writeError)")
                 }
@@ -32,6 +32,10 @@ class BinaryHelper {
         }
         task.resume()
     }
+    class func readBytes(_ filehandle: FileHandle, length: Int) -> [UInt8] {
+        let databuffer = filehandle.readData(ofLength: length)
+        return [UInt8](databuffer)
+    }
     
     class func readUInt8(_ filehandle: FileHandle) -> UInt8 {
         let databuffer = filehandle.readData(ofLength: 1)
@@ -41,5 +45,10 @@ class BinaryHelper {
     class func readInt8(_ filehandle: FileHandle) -> Int8 {
         let databuffer = filehandle.readData(ofLength: 1)
         return Int8(bitPattern: databuffer[0])
+    }
+    
+    class func readInt16LE(_ filehandle: FileHandle) -> Int16 {
+        let databuffer = filehandle.readData(ofLength: 2)
+        return Int16(bitPattern: UInt16(databuffer[0]) | UInt16(databuffer[1]) << 8)
     }
 }

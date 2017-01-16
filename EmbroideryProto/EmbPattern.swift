@@ -6,6 +6,10 @@ public class EmbPattern {
     private var currentBlock = StitchBlock()
     private var threadList = [UIColor]()
     
+    func addThread(_ thread : UIColor) {
+        threadList.append(thread)
+    }
+    
     func addStitchRel(point: CGPoint, stitchType: StitchType) {
         let tempPoint = CGPoint(x: point.x + currentPoint.x, y: point.y + currentPoint.y)
         self.addStitchAbs(point: tempPoint, stitchType: stitchType)
