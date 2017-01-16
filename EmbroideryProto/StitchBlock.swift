@@ -16,6 +16,20 @@ public class StitchBlock {
     
     public var Color : UIColor = UIColor.black
     
+    public func getBounds() -> CGRect {
+        var left = CGFloat.infinity
+        var top = CGFloat.infinity
+        var right = -CGFloat.infinity
+        var bottom = -CGFloat.infinity
+        for point in self.Points {
+            left = min(left, point.x)
+            top = min(top, point.y)
+            right = max(right, point.x)
+            bottom = max(bottom, point.y)
+        }
+        return CGRect(x: left, y: top, width: right-left, height: bottom - top)
+    }
+    
     public static func Load() -> [StitchBlock] {
         var blocks = [StitchBlock]()
         

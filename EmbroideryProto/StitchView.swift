@@ -9,14 +9,13 @@
 import UIKit
 
 class StitchView: UIView {
-    
-    public var stitchBlocks : [StitchBlock] = [StitchBlock]()
-    
-    public func setStitchBlocks(_ instructions: [StitchBlock]) {
-        self.stitchBlocks = instructions
+    public var pattern : EmbPattern = EmbPattern()
+
+    public func setPattern(_ pattern: EmbPattern) {
+        self.pattern = pattern
     }
     
-    var scale = CGFloat(0.9)
+    var scale = CGFloat(1.0)
 
     func changeScale(_ recognizer : UIPinchGestureRecognizer) {
         switch recognizer.state {
@@ -29,33 +28,33 @@ class StitchView: UIView {
         }
     }
 
-    
     func drawStitches() {
-        
         let context = UIGraphicsGetCurrentContext()
-        
-        
         // scale and translate to the standard cartesian coordinate system where the (0,0) is the center of the screen.
         context!.scaleBy(x: 1, y: -1);
-        context!.translateBy(x: self.bounds.size.width*0.5, y: -self.bounds.size.height*0.5);
+        let bounds = self.pattern.calculateBoundingBox()
         
-        for stitch in self.stitchBlocks {
+        let widthRatio = bounds.width / self.bounds.size.width
+        let heightRatio = bounds.height / self.bounds.size.height
+        let scaleRatio = max(widthRatio, heightRatio)
+        context!.translateBy(x: self.bounds.size.width*0.5 - (bounds.midX / scaleRatio), y: -(self.bounds.size.height*0.5 + (bounds.midY / scaleRatio)))
+        
+        for stitch in self.pattern.blocks {
             let path = UIBezierPath()
+            path.lineJoinStyle = .round
             var isFirst = true
             stitch.Color.setStroke()
             for item in stitch.Points {
                 if isFirst {
-                    path.move(to: CGPoint(x: item.x, y: item.y))
+                    path.move(to: CGPoint(x: item.x / scaleRatio, y: item.y / scaleRatio))
                     isFirst = false
                 }
                 else {
-                    path.addLine(to: CGPoint(x: item.x, y:item.y))
+                    path.addLine(to: CGPoint(x: item.x / scaleRatio, y: item.y / scaleRatio))
                 }
             }
             path.stroke()
         }
-        
-        
     }
 
     override func draw(_ rect: CGRect) {

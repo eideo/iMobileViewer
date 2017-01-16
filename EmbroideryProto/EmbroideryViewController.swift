@@ -20,9 +20,21 @@ class EmbroideryViewController: UIViewController {
         }
     }
 
-
     @IBAction func btnDraw(_ sender: UIButton) {
-        self.stitchView.setStitchBlocks(StitchBlock.Load())
+        let file = "somefile.exp"
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let path = dir.appendingPathComponent(file)
+            BinaryHelper.load(url: URL(string: "https://embroideres.com/index.php/download_file/bsdF*slesh*oXOlHE=/29971/")!, to: URL(string: String(describing: path))!, completion: {
+                let file: FileHandle? = try! FileHandle(forReadingFrom: URL(string: String(describing: path))!)
+                if file == nil {
+                    print("File open failed")
+                } else {
+                    let pattern = FormatExp.Read(file: file!)
+                    self.stitchView.setPattern(pattern)
+                    file?.closeFile()
+                }
+            })
+        }
         self.stitchView.setNeedsDisplay()
     }
 
