@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26CB75651E2D43B60040C4A6 /* BinaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB75611E2D43B60040C4A6 /* BinaryHelper.swift */; };
+		26CB75661E2D43B60040C4A6 /* EmbPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB75621E2D43B60040C4A6 /* EmbPattern.swift */; };
+		26CB75671E2D43B60040C4A6 /* FormatExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB75631E2D43B60040C4A6 /* FormatExp.swift */; };
+		26CB75681E2D43B60040C4A6 /* StitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB75641E2D43B60040C4A6 /* StitchType.swift */; };
 		337030B31E2AD885005A0F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337030B21E2AD885005A0F18 /* AppDelegate.swift */; };
 		337030B51E2AD885005A0F18 /* EmbroideryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337030B41E2AD885005A0F18 /* EmbroideryViewController.swift */; };
 		337030B81E2AD885005A0F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337030B61E2AD885005A0F18 /* Main.storyboard */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26CB75611E2D43B60040C4A6 /* BinaryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryHelper.swift; sourceTree = "<group>"; };
+		26CB75621E2D43B60040C4A6 /* EmbPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbPattern.swift; sourceTree = "<group>"; };
+		26CB75631E2D43B60040C4A6 /* FormatExp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatExp.swift; sourceTree = "<group>"; };
+		26CB75641E2D43B60040C4A6 /* StitchType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitchType.swift; sourceTree = "<group>"; };
 		337030AF1E2AD885005A0F18 /* EmbroideryProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbroideryProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337030B21E2AD885005A0F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		337030B41E2AD885005A0F18 /* EmbroideryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +66,10 @@
 		337030B11E2AD885005A0F18 /* EmbroideryProto */ = {
 			isa = PBXGroup;
 			children = (
+				26CB75611E2D43B60040C4A6 /* BinaryHelper.swift */,
+				26CB75621E2D43B60040C4A6 /* EmbPattern.swift */,
+				26CB75631E2D43B60040C4A6 /* FormatExp.swift */,
+				26CB75641E2D43B60040C4A6 /* StitchType.swift */,
 				337030B41E2AD885005A0F18 /* EmbroideryViewController.swift */,
 				337030C51E2AD8D1005A0F18 /* StitchBlock.swift */,
 				337030C71E2B0C74005A0F18 /* StitchView.swift */,
@@ -152,7 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				337030B51E2AD885005A0F18 /* EmbroideryViewController.swift in Sources */,
+				26CB75661E2D43B60040C4A6 /* EmbPattern.swift in Sources */,
 				337030C81E2B0C74005A0F18 /* StitchView.swift in Sources */,
+				26CB75671E2D43B60040C4A6 /* FormatExp.swift in Sources */,
+				26CB75681E2D43B60040C4A6 /* StitchType.swift in Sources */,
+				26CB75651E2D43B60040C4A6 /* BinaryHelper.swift in Sources */,
 				337030C61E2AD8D1005A0F18 /* StitchBlock.swift in Sources */,
 				337030B31E2AD885005A0F18 /* AppDelegate.swift in Sources */,
 			);
@@ -318,6 +334,7 @@
 				337030C31E2AD885005A0F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
