@@ -11,6 +11,7 @@ import UIKit
 class EmbroideryViewController: UIViewController {
     
     
+    @IBOutlet weak var txtFile: UITextField!
     @IBOutlet weak var stitchView: StitchView! {
         didSet {
             stitchView.addGestureRecognizer(UIPinchGestureRecognizer(
@@ -25,7 +26,7 @@ class EmbroideryViewController: UIViewController {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let path = dir.appendingPathComponent(file)
             BinaryHelper.load(url: URL(
-                string: "https://github.com/Embroidermodder/Embroidermodder/blob/master/test-designs/Star.PCS?raw=true")!,
+                string: self.txtFile.text!)!,
                 to: URL(string: String(describing: path))!,
                 completion: {filename in
                     let file: FileHandle? = try! FileHandle(forReadingFrom: URL(string: String(describing: path))!)
