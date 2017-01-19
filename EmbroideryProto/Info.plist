@@ -20,6 +20,20 @@
 				<string>com.embroidery.proto.pcs</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleTypeExtensions</key>
+            <string></string>
+            <key>CFBundleTypeIconFiles</key>
+            <array/>
+            <key>CFBundleTypeName</key>
+            <string>EXP File</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.embroidery.proto.exp</string>
+            </array>
+        </dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -75,6 +89,21 @@
 				<string>pcs</string>
 			</dict>
 		</dict>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.data</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>EXP</string>
+            <key>UTTypeIdentifier</key>
+            <string>com.embroidery.proto.exp</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <string>exp</string>
+            </dict>
+        </dict>
 	</array>
 </dict>
 </plist>

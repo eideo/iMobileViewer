@@ -26,7 +26,7 @@ public class EmbPattern {
         }
         if stitchType == StitchType.End {
             if self.currentBlock.Points.count == 0 {
-                self.blocks.remove(at: self.blocks.count)
+                self.blocks.remove(at: self.blocks.count - 1)
                 return
             }
         }

@@ -32,6 +32,7 @@ class FormatExp {
             }
             pattern.addStitchRel(point: CGPoint(x: CGFloat(b0), y: CGFloat(b1)), stitchType: flags)
         }
+        pattern.addStitchRel(point: CGPoint.zero, stitchType: StitchType.End)
         return pattern
     }
 }
