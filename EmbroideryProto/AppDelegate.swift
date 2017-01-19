@@ -14,6 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        //url contains a URL to the file your app shall open
+        
+        //In my EXAMPLE I would want to read the file as a dictionary
+        //let dictionary = NSDictionary(contentsOfURL: url)
+        let controller = self.window?.rootViewController as! EmbroideryViewController
+        
+        controller.loadFile(url)
+        return true
+        
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
