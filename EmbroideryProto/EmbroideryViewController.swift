@@ -32,13 +32,16 @@ class EmbroideryViewController: UIViewController {
                                 reader = FormatExp()
                             } else if fileextension == "pcs" {
                                 reader = FormatPcs()
+                            } else if fileextension == "pec" {
+                                reader = FormatPec()
+                            } else if fileextension == "pes" {
+                                reader = FormatPes()
                             }
                             if reader != nil {
                                 pattern = (reader?.read(file: file))!
                             } else {
                                 pattern = EmbPattern()
                             }
-                            
                             self.stitchView.setPattern(pattern)
                             DispatchQueue.main.async {
                                 self.stitchView.setNeedsDisplay()

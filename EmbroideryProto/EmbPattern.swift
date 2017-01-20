@@ -21,6 +21,8 @@ public class EmbPattern {
                 let newThread = UIColor(red: CGFloat(Float(arc4random()) / Float(UINT32_MAX)), green: CGFloat(Float(arc4random()) / Float(UINT32_MAX)), blue:CGFloat(Float(arc4random()) / Float(UINT32_MAX)), alpha: 1.0)
                 self.threadList.append(newThread)
                 currentBlock.Color = newThread
+            } else{
+                currentBlock.Color = self.threadList[0]
             }
             blocks.append(currentBlock)
         }

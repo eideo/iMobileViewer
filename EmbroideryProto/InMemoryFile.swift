@@ -33,6 +33,18 @@ class InMemoryFile {
         return Int16(bitPattern: UInt16(databuffer[0]) | UInt16(databuffer[1]) << 8)
     }
     
+    func readInt32() -> Int32 {
+        let databuffer = self.data.subdata(in: offsetInFile..<offsetInFile+4)
+        offsetInFile += 4
+        return Int32(bitPattern: UInt32(databuffer[0]) << 24 | UInt32(databuffer[1]) << 16 | UInt32(databuffer[2]) << 8 | UInt32(databuffer[3]))
+    }
+    
+    func readInt32LE() -> Int32 {
+        let databuffer = self.data.subdata(in: offsetInFile..<offsetInFile+4)
+        offsetInFile += 4
+        return Int32(bitPattern: UInt32(databuffer[0]) | UInt32(databuffer[1]) << 8 | UInt32(databuffer[2]) << 16 | UInt32(databuffer[3]) << 24)
+    }
+    
     func seek(set: Int){
         offsetInFile = set
     }

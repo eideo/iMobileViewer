@@ -13,6 +13,7 @@ class StitchView: UIView {
 
     public func setPattern(_ pattern: EmbPattern) {
         self.pattern = pattern
+        self.backgroundColor = UIColor(colorLiteralRed: 0.9, green:0.9, blue: 0.9, alpha: 1.0)
     }
     
     var scale = CGFloat(1.0)

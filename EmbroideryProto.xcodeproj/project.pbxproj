@@ -14,6 +14,9 @@
 		26CB756A1E2D49D00040C4A6 /* FormatPcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB75691E2D49D00040C4A6 /* FormatPcs.swift */; };
 		26FCE1A51E31D0D300E33243 /* InMemoryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCE1A41E31D0D300E33243 /* InMemoryFile.swift */; };
 		26FCE1A71E31D8EE00E33243 /* FormatProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCE1A61E31D8EE00E33243 /* FormatProtocol.swift */; };
+		26FCE1A91E31DF9300E33243 /* FormatPec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCE1A81E31DF9300E33243 /* FormatPec.swift */; };
+		26FCE1AB1E31ED6C00E33243 /* FormatPes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCE1AA1E31ED6C00E33243 /* FormatPes.swift */; };
+		26FCE1AD1E31F6E900E33243 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCE1AC1E31F6E900E33243 /* UIColorExtension.swift */; };
 		337030B31E2AD885005A0F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337030B21E2AD885005A0F18 /* AppDelegate.swift */; };
 		337030B51E2AD885005A0F18 /* EmbroideryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337030B41E2AD885005A0F18 /* EmbroideryViewController.swift */; };
 		337030B81E2AD885005A0F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337030B61E2AD885005A0F18 /* Main.storyboard */; };
@@ -31,6 +34,9 @@
 		26CB75691E2D49D00040C4A6 /* FormatPcs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPcs.swift; sourceTree = "<group>"; };
 		26FCE1A41E31D0D300E33243 /* InMemoryFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryFile.swift; sourceTree = "<group>"; };
 		26FCE1A61E31D8EE00E33243 /* FormatProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatProtocol.swift; sourceTree = "<group>"; };
+		26FCE1A81E31DF9300E33243 /* FormatPec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPec.swift; sourceTree = "<group>"; };
+		26FCE1AA1E31ED6C00E33243 /* FormatPes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPes.swift; sourceTree = "<group>"; };
+		26FCE1AC1E31F6E900E33243 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		337030AF1E2AD885005A0F18 /* EmbroideryProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbroideryProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337030B21E2AD885005A0F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		337030B41E2AD885005A0F18 /* EmbroideryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbroideryViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +90,9 @@
 				26CB75691E2D49D00040C4A6 /* FormatPcs.swift */,
 				26FCE1A41E31D0D300E33243 /* InMemoryFile.swift */,
 				26FCE1A61E31D8EE00E33243 /* FormatProtocol.swift */,
+				26FCE1A81E31DF9300E33243 /* FormatPec.swift */,
+				26FCE1AA1E31ED6C00E33243 /* FormatPes.swift */,
+				26FCE1AC1E31F6E900E33243 /* UIColorExtension.swift */,
 			);
 			path = EmbroideryProto;
 			sourceTree = "<group>";
@@ -173,8 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				337030B51E2AD885005A0F18 /* EmbroideryViewController.swift in Sources */,
+				26FCE1AD1E31F6E900E33243 /* UIColorExtension.swift in Sources */,
 				26CB75661E2D43B60040C4A6 /* EmbPattern.swift in Sources */,
 				337030C81E2B0C74005A0F18 /* StitchView.swift in Sources */,
+				26FCE1AB1E31ED6C00E33243 /* FormatPes.swift in Sources */,
+				26FCE1A91E31DF9300E33243 /* FormatPec.swift in Sources */,
 				26FCE1A51E31D0D300E33243 /* InMemoryFile.swift in Sources */,
 				26CB75671E2D43B60040C4A6 /* FormatExp.swift in Sources */,
 				26CB75681E2D43B60040C4A6 /* StitchType.swift in Sources */,
