@@ -1,30 +1,28 @@
 import UIKit
 
-class FormatExp {
-    class func read(file : FileHandle) -> EmbPattern {
+class FormatExp : FormatProtocol {
+    func read(file : InMemoryFile) -> EmbPattern {
         let pattern = EmbPattern()
-        file.seekToEndOfFile()
-        let fileLength = file.offsetInFile
-        file.seek(toFileOffset: 0)
-        while ((file.offsetInFile) < fileLength) {
-            var b0 = BinaryHelper.readInt8(file)
-            var b1 = BinaryHelper.readInt8(file)
+        let fileLength = file.count()
+        while file.offsetInFile < fileLength {
+            var b0 = file.readInt8()
+            var b1 = file.readInt8()
             var flags: StitchType = StitchType.Normal
             if (b0 == -128) {
                 if ((b1 & 1) > 0) {
-                    b0 = BinaryHelper.readInt8(file)
-                    b1 = BinaryHelper.readInt8(file)
+                    b0 = file.readInt8()
+                    b1 = file.readInt8()
                     flags = StitchType.Stop
                 } else if ((b1 == 2) || (b1 == 4) || b1 == 6) {
                     flags = StitchType.Trim
                     if (b1 == 2) {
                         flags = StitchType.Normal
                     }
-                    b0 = BinaryHelper.readInt8(file)
-                    b1 = BinaryHelper.readInt8(file)
+                    b0 = file.readInt8()
+                    b1 = file.readInt8()
                 } else if (b1 == -128) {
-                    b0 = BinaryHelper.readInt8(file)
-                    b1 = BinaryHelper.readInt8(file)
+                    b0 = file.readInt8()
+                    b1 = file.readInt8()
                     b0 = 0
                     b1 = 0
                     flags = StitchType.Trim

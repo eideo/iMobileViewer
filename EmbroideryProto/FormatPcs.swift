@@ -1,5 +1,5 @@
 import UIKit
-class FormatPcs {
+class FormatPcs : FormatProtocol {
     class func pcsDecode(a1 : UInt8, a2 : UInt8, a3 : UInt8) -> Int32 {
         var res : Int32
         res = Int32(a1) | Int32(a2) << 8 | Int32(a3) << 16
@@ -9,7 +9,7 @@ class FormatPcs {
         return res;
     }
     
-    class func read(file : FileHandle) -> EmbPattern {
+    func read(file : InMemoryFile) -> EmbPattern {
         var allZeroColor = true
         var b = [UInt8]()
         var dx : Int32
@@ -20,25 +20,25 @@ class FormatPcs {
         var hoopSize : UInt8
         var colorCount : Int16
         let pattern = EmbPattern()
-        version = BinaryHelper.readUInt8(file)
-        hoopSize = BinaryHelper.readUInt8(file)  /* 0 for PCD, 1 for PCQ (MAXI), 2 for PCS with small hoop(80x80), */
+        version = file.readUInt8()
+        hoopSize = file.readUInt8()  /* 0 for PCD, 1 for PCQ (MAXI), 2 for PCS with small hoop(80x80), */
         /* and 3 for PCS with large hoop (115x120) */
-        colorCount = BinaryHelper.readInt16LE(file)
+        colorCount = file.readInt16LE()
         for _ in 1...colorCount {
-            let red = BinaryHelper.readUInt8(file)
-            let green = BinaryHelper.readUInt8(file)
-            let blue = BinaryHelper.readUInt8(file)
+            let red = file.readUInt8()
+            let green = file.readUInt8()
+            let blue = file.readUInt8()
             let t = UIColor(red: CGFloat(red) / CGFloat(255), green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1.0)
             if (red != 0 || green != 0 || blue != 0) {
                 allZeroColor = false
             }
             pattern.addThread(t);
-            _ = BinaryHelper.readUInt8(file)
+            _ = file.readUInt8()
         }
-        st = BinaryHelper.readInt16LE(file)
+        st = file.readInt16LE()
         for _ in 1...st {
             flags = StitchType.Normal
-            b = BinaryHelper.readBytes(file, length: 9)
+            b = file.readBytes(length: 9)
             if b.count < 9 {
                 break;
             }
